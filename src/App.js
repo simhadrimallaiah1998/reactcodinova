@@ -1,21 +1,25 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Signin from "./component/Signin.js";
+import Login from "./component/Login";
+import Home from "./component/Home";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>welcome to the project</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/signin" element={<Signin />}></Route>
+
+          <Route exact path="/home" element={<Home />}></Route>
+
+          <Route exact path="/" element={<Login />}></Route>
+        </Routes>
+        <ToastContainer />
+      </BrowserRouter>
     </div>
   );
 }
